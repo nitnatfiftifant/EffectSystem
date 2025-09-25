@@ -4,7 +4,7 @@ var speed:=1.0
 
 var durality:=1.0
 
-var s_effect:PackedScene = preload("res://Effect/effect.tscn")
+var s_effect:PackedScene = preload("res://Effect/Effects/fire.tscn")
 
 func _physics_process(delta: float) -> void:
 	position.z -= speed * delta
@@ -18,8 +18,9 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body:
 		return
 	
-	Game.add_effect(get_parent(), s_effect, body)
-	print(body.name)
+	var effect = s_effect.instantiate()
+	effect.target = body
+	body.effect_mgr.add_effect(effect)
 
 func _on_body_exited(body: Node3D) -> void:
 	queue_free()

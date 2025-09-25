@@ -4,36 +4,42 @@ class_name Effect extends Node
 Эффект может иметь только одну цель или связку целей. Если цель удаляется, то эффект уже не нужен
 """
 
-## Нужен для индификации
-@export var name_effect:String="Effect"
-## Как долго будет существовать эффект
-@export var duration:float = 5.0
-## Как часто вызывается метод
-@export var tick_delay: float = 1.0
-## Если true, то эффект вызывается один раз при создании, применяет метод и удаляется
-@export var oneshot:bool = false
-## Если true, то эффект не будет удалён со временем 
-@export var passive:bool = false
+@export var name_effect:String="Effect" ## Индификатор
+@export var duration:float = 5.0 ## Как долго будет существовать эффект
+## Количество сбрабатывания эффекта на протяжении всей длительности
+@export_range(1, 1_000_000) var ticks_per_duration: int = 5 : set = _set_ticks_per_duration
+@export var oneshot:bool = false ## Если true, то эффект вызывается один раз при создании, применяет метод и удаляется
+@export var passive:bool = false ## Если true, то эффект не будет удалён со временем 
 
+# перменные для счётчика
+var ticks_done: int = 0 # сколько тиков уже прошло
+var tick_delay: float = 1.0
 var tick_timer: float = 0.0
 
-var target:Node
+var target:Entiti
 
 signal start
 signal apply
 signal end
 
+var elapsed := 0.0 # просто проверка длительности
+
+func _set_ticks_per_duration(value: int) -> void:
+	ticks_per_duration = value
+	tick_delay = duration / ticks_per_duration
+	ticks_done = 0
+
 func _ready() -> void:
 	name = name_effect
-	target.appling_effects.append(self)
-	start.emit()
+	_start_effect()
 	if oneshot:
-		_apply_effect()
 		_finished()
 
+func _physics_process(delta: float) -> void:
+	elapsed += delta
+
 func _process(delta: float) -> void:
-	if oneshot == false:
-		life_cycle(delta)
+	life_cycle(delta)
 
 func life_cycle(delta):
 	if passive and duration < 0:
@@ -46,17 +52,24 @@ func life_cycle(delta):
 	# обычные временные эффекты
 	duration -= delta
 	tick_timer -= delta
-	if tick_timer <= 0.0:
+	
+	# устойчивое применение эффекта
+	while tick_timer <= 0.0 and ticks_done < ticks_per_duration:
 		_apply_effect()
-		tick_timer = tick_delay
+		ticks_done += 1
+		tick_timer += tick_delay
 
 	if duration <= 0.0:
 		_finished()
 
+func _start_effect():
+	print(name_effect + " эффект начался")
+	start.emit()
+
 func _finished():
 	print(name_effect + " закончился")
-	target.appling_effects.erase(self)
 	end.emit()
+	print("%0.3f" % elapsed)
 	queue_free()
 
 func _apply_effect():

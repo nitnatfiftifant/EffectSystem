@@ -1,29 +1,30 @@
 class_name Entiti extends Node3D
 
-@onready var effects_label: Label3D = $Label3D/EffectsLabel
-var appling_effects:Array[Effect]
-var effect_in_label:Array[Effect]
+@onready var hp_label: Label3D = %HPLabel
+@onready var effects_label: Label3D = %EffectsLabel
+
+var hp:=2_00 : set = take_damage
+
+var effect_mgr:EffectManager
+
+func _ready() -> void:
+	effect_mgr = EffectManager.new()
+	add_child(effect_mgr)
 
 func _process(delta: float) -> void:
-	if effect_in_label.is_empty():
-		effects_label.text = ""
-	for i in appling_effects:
-		print(i)
-		update_info(i)
-	var remove = []
-	for i in effect_in_label:
-		if appling_effects.has(i) == false:
-			remove.append(i)
-	for i in remove:
-		effect_in_label.erase(i)
-	remove.clear()
+	hp_label.text = str(hp)
+	update_info()
 
-func update_info(effect: Effect):
-	if effect_in_label.has(effect):
-		return
-	else:
-		if effect_in_label.size() == 1:
-			effects_label.text = effect.name_effect
-		else:
-			effects_label.text = effects_label.text + ", " + effect.name_effect
-		effect_in_label.append(effect)
+func take_damage(damage):
+	hp -= damage
+	if hp <= 0:
+		queue_free()
+
+func update_info():
+	var lines: Array[String] = []
+	for i: Effect in effect_mgr.get_effects():
+		var line:String = i.name_effect + " :" + "%0.2f" % i.duration
+		lines.append(line)
+	
+	# объединяем строки через перенос строки
+	effects_label.text = "Эффекты" + "\n" + "\n".join(lines)
