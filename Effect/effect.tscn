@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://byasuw8ytehkt"]
+
+[ext_resource type="Script" uid="uid://bcaevksgix2me" path="res://Effect/effect.gd" id="1_kfmht"]
+
+[node name="Effect" type="Node"]
+script = ExtResource("1_kfmht")
+name_effect = "Fireball"

@@ -1,0 +1,120 @@
+[gd_scene load_steps=19 format=3 uid="uid://day8n0peqjall"]
+
+[ext_resource type="Script" uid="uid://cymku4421y8i0" path="res://Fireball/fire_ball.gd" id="1_33tgk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ashsd"]
+
+[sub_resource type="Gradient" id="Gradient_33tgk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.56557375)
+colors = PackedColorArray(0.45840502, 0.45840508, 0.45840502, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_otdx4"]
+frequency = 0.0306
+fractal_type = 3
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u3jkc"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_otdx4")
+color_ramp = SubResource("Gradient_33tgk")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6wfr"]
+shading_mode = 0
+albedo_color = Color(1.5370882, 0.53129226, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_u3jkc")
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_10e54"]
+
+[sub_resource type="Curve" id="Curve_ashsd"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 69.89987), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_33tgk"]
+curve = SubResource("Curve_ashsd")
+
+[sub_resource type="Curve" id="Curve_otdx4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u3jkc"]
+curve = SubResource("Curve_otdx4")
+
+[sub_resource type="Curve" id="Curve_o6wfr"]
+_limits = [-31.038818, 30.788467, 0.0, 1.0]
+_data = [Vector2(0, -21.017994), 0.0, 0.0, 0, 0, Vector2(0.9968749, 19.72301), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_10e54"]
+curve = SubResource("Curve_o6wfr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pi8yq"]
+emission_shape = 2
+emission_sphere_radius = 0.5
+gravity = Vector3(0, 9.8, 0)
+tangential_accel_min = -0.5000022
+tangential_accel_max = 0.49999776
+tangential_accel_curve = SubResource("CurveTexture_10e54")
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_33tgk")
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_u3jkc")
+hue_variation_min = -0.04000002
+hue_variation_max = 0.079999976
+
+[sub_resource type="Gradient" id="Gradient_c6uae"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5100671, 1)
+colors = PackedColorArray(0.7216919, 0.343832, 0.010283616, 1, 0.81960785, 0.21568628, 0, 1, 0.012617188, 0.012617188, 0.012617188, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qcle6"]
+gradient = SubResource("Gradient_c6uae")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u65jv"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_qcle6")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_fj177"]
+material = SubResource("StandardMaterial3D_u65jv")
+size = Vector2(0.1, 0.1)
+
+[node name="FireBall" type="Area3D"]
+script = ExtResource("1_33tgk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ashsd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_o6wfr")
+mesh = SubResource("SphereMesh_10e54")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 50
+lifetime = 0.5
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pi8yq")
+draw_pass_1 = SubResource("QuadMesh_fj177")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
