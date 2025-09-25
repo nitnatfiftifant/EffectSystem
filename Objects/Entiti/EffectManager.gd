@@ -17,13 +17,17 @@ func remove_effect(effect: Effect):
 	if get_effects().has(effect):
 		get_children().erase(effect)
 	else:
-		print("У менеджера и так нет этого эффекта, это странно")
+		pass
+		#print("У менеджера и так нет этого эффекта, это странно")
 
 func start_effect(effect: Effect):
-	print("Добавлен эффект" + effect.name_effect)
+	#print("Добавлен эффект" + effect.name_effect)
+	pass
 
 func apply_effect(effect: Effect):
-	print("Применился эффект" + effect.name_effect)
+	#print("Применился эффект" + effect.name_effect)
+	pass
 
 func end_effect(effect: Effect):
-	print("Эффект " + effect.name_effect + " закончился")
+	#print("Эффект " + effect.name_effect + " закончился")
+	pass

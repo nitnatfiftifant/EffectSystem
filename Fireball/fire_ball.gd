@@ -4,7 +4,7 @@ var speed:=1.0
 
 var durality:=1.0
 
-var s_effect:PackedScene = preload("res://Effect/Effects/fire.tscn")
+var s_effect:PackedScene = preload("uid://c8csm0yiv8ai6")
 
 func _physics_process(delta: float) -> void:
 	position.z -= speed * delta

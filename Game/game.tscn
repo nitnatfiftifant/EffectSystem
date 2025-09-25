@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk67i7rvja18g"]
+[gd_scene load_steps=11 format=3 uid="uid://dk67i7rvja18g"]
 
 [ext_resource type="Script" uid="uid://ob3leftfcqc2" path="res://Game/game.gd" id="1_1r4le"]
-[ext_resource type="Script" uid="uid://denpk5hqilk0j" path="res://Entiti/Entiti.gd" id="1_bk3v5"]
+[ext_resource type="Script" uid="uid://denpk5hqilk0j" path="res://Objects/Entiti/Entiti.gd" id="1_bk3v5"]
+[ext_resource type="PackedScene" uid="uid://bvbggrgg87cjf" path="res://UI/DebugConsole/debug_console.tscn" id="3_7raqb"]
+[ext_resource type="PackedScene" uid="uid://ldn3ojmiw3j1" path="res://Systems/InputHandler/input_handler.tscn" id="3_jcm6v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bk3v5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +22,9 @@ glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bk3v5"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_jcm6v"]
+size = Vector3(0.695, 0.685, 1)
+
 [node name="Game" type="Node"]
 script = ExtResource("1_1r4le")
 
@@ -30,32 +35,51 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7raqb")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.99999845, 0.0017369626, -0.000396291, 0, 0.2224359, 0.97494733, 0.0017815965, -0.9749458, 0.22243555, 2.695505, 10.424282, 2.6490242)
+
+[node name="Entities" type="Node" parent="."]
+
+[node name="Entiti" type="CharacterBody3D" parent="Entities"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti"]
 shape = SubResource("BoxShape3D_4oc8p")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti"]
 mesh = SubResource("BoxMesh_bk3v5")
 
-[node name="HPLabel" type="Label3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
 billboard = 1
 no_depth_test = true
 text = "100"
 font_size = 102
 
-[node name="EffectsLabel" type="Label3D" parent="CharacterBody3D"]
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
 offset = Vector2(0, -85)
 billboard = 1
 no_depth_test = true
 font_size = 62
 outline_size = 37
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.78371614, -0.39839888, 0.4765159, 0, 0.76718915, 0.64142096, -0.6211192, -0.502692, 0.6012585, 3.9076695, 6.4700513, 3.6597857)
+[node name="InputHandler" parent="Entities/Entiti" node_paths=PackedStringArray("target") instance=ExtResource("3_jcm6v")]
+target = NodePath("..")
+
+[node name="DebugConsole" parent="." instance=ExtResource("3_7raqb")]

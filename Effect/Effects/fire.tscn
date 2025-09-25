@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8csm0yiv8ai6"]
-
-[ext_resource type="Script" uid="uid://den4l2f2vfy71" path="res://Effect/Effects/fire.gd" id="1_s5v6c"]
-
-[node name="Fire" type="Node"]
-script = ExtResource("1_s5v6c")
-name_effect = "Fire"
-ticks_per_duration = 100

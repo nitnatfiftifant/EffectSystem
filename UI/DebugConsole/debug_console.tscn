@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvbggrgg87cjf"]
+
+[ext_resource type="Script" uid="uid://cxopwsrjyyqc" path="res://UI/DebugConsole/debug_console.gd" id="1_6dv6m"]
+[ext_resource type="Texture2D" uid="uid://bxd7sx21j4w4y" path="res://icon.svg" id="1_m8pi0"]
+[ext_resource type="Script" uid="uid://c4ounekgk4f6d" path="res://UI/DebugConsole/object_info_panel.gd" id="2_rxtqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8pi0"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dv6m"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.08034063, 0.10355056, 0.1383067, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+
+[node name="DebugConsole" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_6dv6m")
+
+[node name="ObjectInfoPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 472.0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8pi0")
+script = ExtResource("2_rxtqi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ObjectInfoPanel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="ObjectInfoPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ObjectName" type="Label" parent="ObjectInfoPanel/VBoxContainer/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 32)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 32.0
+text = "Информация об объекте"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectsOnObject" type="FoldableContainer" parent="ObjectInfoPanel/VBoxContainer"]
+layout_mode = 2
+title = "Эффекты"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ObjectInfoPanel/VBoxContainer/EffectsOnObject"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="EffectContainer" type="GridContainer" parent="ObjectInfoPanel/VBoxContainer/EffectsOnObject/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 5
+
+[node name="EffectsOnObject2" type="FoldableContainer" parent="ObjectInfoPanel/VBoxContainer"]
+layout_mode = 2
+title = "Параметры"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ObjectInfoPanel/VBoxContainer/EffectsOnObject2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ObjectInfoPanel/VBoxContainer/EffectsOnObject2/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+collapsed = true
+
+[node name="ObjectParametersContainer1" type="VBoxContainer" parent="ObjectInfoPanel/VBoxContainer/EffectsOnObject2/ScrollContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="ObjectParametersContainer2" type="VBoxContainer" parent="ObjectInfoPanel/VBoxContainer/EffectsOnObject2/ScrollContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="PortretPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(136, 136)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+offset_right = 136.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_6dv6m")
+
+[node name="Portret" type="TextureRect" parent="PortretPanel"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m8pi0")
+stretch_mode = 2
+
+[node name="FPSLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

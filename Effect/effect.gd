@@ -63,19 +63,14 @@ func life_cycle(delta):
 		_finished()
 
 func _start_effect():
-	print(name_effect + " эффект начался")
 	start.emit()
 
 func _finished():
-	print(name_effect + " закончился")
 	end.emit()
-	print("%0.3f" % elapsed)
 	queue_free()
 
 func _apply_effect():
 	if target:
-		print(name_effect + " применился на " + target.name)
 		apply.emit()
 	else:
-		print("Нет цели")
 		_finished()
