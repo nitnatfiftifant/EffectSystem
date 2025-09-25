@@ -5,8 +5,6 @@ class_name InputHandler extends Node
 @export var target:Entiti
 
 func _ready() -> void:
-	if target == null:
-		target = get_parent()
 	for action_name in input_settings.inputs:
 		var keycode: String = input_settings.inputs[action_name]
 

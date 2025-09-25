@@ -37,8 +37,8 @@ func update_parametrs(target:Entiti):
 	for i in attributes:
 		var label:Label = Label.new()
 		label.text = str(i) + ": " + str(attributes[i])
-		if object_parameters_container_1.get_child_count() >= 5:
-			if object_parameters_container_2.get_child_count() >= 5:
+		if object_parameters_container_1.get_child_count() > 5:
+			if object_parameters_container_2.get_child_count() > 5:
 				print("Аттрибутов слишком много")
 				continue
 			object_parameters_container_2.add_child(label)

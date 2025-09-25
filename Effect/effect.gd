@@ -1,7 +1,8 @@
 class_name Effect extends Node
 """
-Еффекты - узлы с уникальным функционалом. Они существуют в дереве узлов и применяют разные функции на свои цели
-Эффект может иметь только одну цель или связку целей. Если цель удаляется, то эффект уже не нужен
+Еффекты - узлы с уникальным функционалом. 
+Они существуют в дереве узлов и применяют разные функции на свои цели
+Эффект может иметь использует массив целей, но в основном используется одиночная цель.
 """
 
 @export var name_effect:String="Effect" ## Индификатор
@@ -16,7 +17,7 @@ var ticks_done: int = 0 # сколько тиков уже прошло
 var tick_delay: float = 1.0
 var tick_timer: float = 0.0
 
-var target:Entiti
+var targets:Array[Entiti]
 
 signal start
 signal apply
@@ -32,8 +33,6 @@ func _set_ticks_per_duration(value: int) -> void:
 func _ready() -> void:
 	name = name_effect
 	_start_effect()
-	if oneshot:
-		_finished()
 
 func _physics_process(delta: float) -> void:
 	elapsed += delta
@@ -64,13 +63,18 @@ func life_cycle(delta):
 
 func _start_effect():
 	start.emit()
+	if oneshot:
+		_apply_effect()
+		await apply
+		_finished()
 
 func _finished():
 	end.emit()
 	queue_free()
 
 func _apply_effect():
-	if target:
-		apply.emit()
-	else:
-		_finished()
+	#if target.is_empty() == false:
+		#apply.emit()
+	#else:
+		#_finished()
+	apply.emit()

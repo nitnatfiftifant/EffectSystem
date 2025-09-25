@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxtjxh5od82mm"]
+
+[ext_resource type="Script" uid="uid://dyw81smpeepby" path="res://Magic/FireExplosion/fire_explosion.gd" id="1_6b5nh"]
+
+[sub_resource type="Curve" id="Curve_ht0bw"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 69.89987), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ljltv"]
+curve = SubResource("Curve_ht0bw")
+
+[sub_resource type="Curve" id="Curve_6kn7o"]
+_limits = [0.0, 29.213501, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 8.862522), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6g73o"]
+curve = SubResource("Curve_6kn7o")
+
+[sub_resource type="Curve" id="Curve_k5dsk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2hh2g"]
+curve = SubResource("Curve_k5dsk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b8f72"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 9.999997
+radial_accel_curve = SubResource("CurveTexture_6g73o")
+damping_max = 41.000004
+damping_curve = SubResource("CurveTexture_ljltv")
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_2hh2g")
+hue_variation_min = -0.04000002
+hue_variation_max = 0.079999976
+
+[sub_resource type="Gradient" id="Gradient_4acae"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5100671, 1)
+colors = PackedColorArray(0.7216919, 0.343832, 0.010283616, 1, 0.81960785, 0.21568628, 0, 1, 0.012617188, 0.012617188, 0.012617188, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_txyas"]
+gradient = SubResource("Gradient_4acae")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_df17u"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_txyas")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_jqqch"]
+material = SubResource("StandardMaterial3D_df17u")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ht0bw"]
+radius = 3.0
+
+[node name="FireExplosion" type="Area3D"]
+input_ray_pickable = false
+script = ExtResource("1_6b5nh")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+speed_scale = 10.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_b8f72")
+draw_pass_1 = SubResource("QuadMesh_jqqch")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ht0bw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

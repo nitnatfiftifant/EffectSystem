@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://day8n0peqjall"]
 
-[ext_resource type="Script" uid="uid://cymku4421y8i0" path="res://Fireball/fire_ball.gd" id="1_33tgk"]
+[ext_resource type="Script" uid="uid://cymku4421y8i0" path="res://Magic/FireBall/fire_ball.gd" id="1_33tgk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ashsd"]
 
@@ -117,4 +117,3 @@ process_material = SubResource("ParticleProcessMaterial_pi8yq")
 draw_pass_1 = SubResource("QuadMesh_fj177")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

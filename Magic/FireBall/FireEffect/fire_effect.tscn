@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c8csm0yiv8ai6"]
 
-[ext_resource type="Script" uid="uid://den4l2f2vfy71" path="res://Fireball/Effect/fire.gd" id="1_s5v6c"]
+[ext_resource type="Script" uid="uid://den4l2f2vfy71" path="res://Magic/FireBall/FireEffect/fire_effect.gd" id="1_ighqy"]
 
 [sub_resource type="Curve" id="Curve_s5v6c"]
 _limits = [0.0, 100.0, 0.0, 1.0]
@@ -74,13 +74,14 @@ script/source = "extends GPUParticles3D
 
 
 func _process(delta: float) -> void:
-	position = get_parent().target.position
+	position = get_parent().targets[0].position
 "
 
-[node name="Fire" type="Node"]
-script = ExtResource("1_s5v6c")
-name_effect = "Fire"
-ticks_per_duration = 100
+[node name="FireEffect" type="Node"]
+script = ExtResource("1_ighqy")
+name_effect = "В огне"
+duration = 0.1
+ticks_per_duration = 2
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 50

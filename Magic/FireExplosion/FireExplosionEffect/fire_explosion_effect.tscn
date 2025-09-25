@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://17ottup8qmf1"]
+
+[ext_resource type="Script" uid="uid://by1piia6dkgp1" path="res://Magic/FireExplosion/FireExplosionEffect/fire_explosion_effect.gd" id="1_pmtsy"]
+
+[node name="FireExplosionEffect" type="Node"]
+script = ExtResource("1_pmtsy")
+name_effect = "Огненный взрыв"
+oneshot = true
