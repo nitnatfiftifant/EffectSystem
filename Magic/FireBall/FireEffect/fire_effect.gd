@@ -16,5 +16,6 @@ func _apply_effect():
 func _finished():
 	for target in targets:
 		if target:
-			target.effect_mgr.add_effect(EffectsDb.id[EffectsDb.EffectID.FIRE_EXPLOSION], [target])
+			target.effect_mgr.add_effect(
+				EffectsDb.get_effect(EffectsDb.EffectID.FIRE_EXPLOSION), [target])
 	super()

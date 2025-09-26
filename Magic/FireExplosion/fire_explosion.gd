@@ -17,5 +17,6 @@ func _on_body_exited(body: Node3D) -> void:
 func _on_gpu_particles_3d_finished() -> void:
 	if targets.is_empty() == false:
 		for i:Entiti in targets:
-			i.effect_mgr.add_effect(EffectsDb.id[EffectsDb.EffectID.FIRE_EFFECT], [i])
+			i.effect_mgr.add_effect(
+				EffectsDb.get_effect(EffectsDb.EffectID.FIRE_EFFECT), [i])
 	queue_free()

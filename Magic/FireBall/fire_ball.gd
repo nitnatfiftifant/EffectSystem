@@ -16,5 +16,6 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body:
 		return
 	
-	body.effect_mgr.add_effect(EffectsDb.id[EffectsDb.EffectID.FIRE_EFFECT], [body])
+	body.effect_mgr.add_effect(
+		EffectsDb.get_effect(EffectsDb.EffectID.FIRE_EFFECT), [body])
 	queue_free()
