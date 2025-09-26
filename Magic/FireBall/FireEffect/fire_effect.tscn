@@ -80,8 +80,7 @@ func _process(delta: float) -> void:
 [node name="FireEffect" type="Node"]
 script = ExtResource("1_ighqy")
 name_effect = "В огне"
-duration = 0.1
-ticks_per_duration = 2
+"сan_stack_up" = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 50

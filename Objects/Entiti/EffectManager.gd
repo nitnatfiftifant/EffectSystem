@@ -6,17 +6,18 @@ func _ready() -> void:
 func get_effects():
 	return get_children() as Array[Effect]
 
-func add_effect(effect: Effect, targets:Array):
-	# сделать целевым узлом родительский узел, выглядит не гибко
-	#var target:Entiti = get_parent()
-	#assert(get_parent() is Entiti, "Родительский узел: " + str(target) + " не является Entiti")
-	#effect.targets.append(target)
-	add_child(effect)
-	effect.targets.append_array(targets)
-	effect.name = effect.name_effect
-	effect.start.connect(start_effect.bind(effect))
-	effect.apply.connect(apply_effect.bind(effect))
-	effect.end.connect(end_effect.bind(effect))
+func add_effect(s_effect: String, targets:Array):
+	var effect :Effect = load(s_effect).instantiate()
+	if has_duplicate_effect(effect.name_effect) and effect.сan_stack_up == false:
+		effect.queue_free()
+		return
+	else:
+		add_child(effect)
+		effect.targets.append_array(targets)
+		effect.name = effect.name_effect
+		effect.start.connect(start_effect.bind(effect))
+		effect.apply.connect(apply_effect.bind(effect))
+		effect.end.connect(end_effect.bind(effect))
 
 func remove_effect(effect: Effect):
 	if get_effects().has(effect):

@@ -11,6 +11,7 @@ class_name Effect extends Node
 @export_range(1, 1_000_000) var ticks_per_duration: int = 5 : set = _set_ticks_per_duration
 @export var oneshot:bool = false ## Если true, то эффект вызывается один раз при создании, применяет метод и удаляется
 @export var passive:bool = false ## Если true, то эффект не будет удалён со временем 
+@export var сan_stack_up:bool = false
 
 # перменные для счётчика
 var ticks_done: int = 0 # сколько тиков уже прошло

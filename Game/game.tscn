@@ -59,7 +59,7 @@ shadow_enabled = true
 environment = SubResource("Environment_7raqb")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99999845, 0.0017369626, -0.000396291, 0, 0.2224359, 0.97494733, 0.0017815965, -0.9749458, 0.22243555, 2.695505, 10.424282, 2.6490242)
+transform = Transform3D(0.904455, 0.40952727, -0.11936728, 0, 0.27983108, 0.9600493, 0.42656904, -0.86832136, 0.2530946, 3.4400263, 14.592789, 3.5933886)
 
 [node name="Entities" type="Node" parent="."]
 
@@ -251,7 +251,6 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti6" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -3)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -288,7 +287,7 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti7" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -325,7 +324,7 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti8" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -362,7 +361,7 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti9" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -399,7 +398,7 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti10" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -436,7 +435,7 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti11" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -3)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -6, 0, 0.19615269)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -473,7 +472,7 @@ font_size = 62
 outline_size = 37
 
 [node name="Entiti12" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -3)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -4.5, 0, -2.4019237)
 script = ExtResource("1_bk3v5")
 attributes = {
 "HP": 1000000,
@@ -501,6 +500,672 @@ text = "100"
 font_size = 102
 
 [node name="EffectsLabel" type="Label3D" parent="Entities/Entiti12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti13" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -3, 0, -5)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti13"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti13"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti14" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -1.5, 0, -7.5980763)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti14"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti14"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti15" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, -10.196153)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti15"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti15"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti16" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 10, 0, 7.1961527)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti16"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti16"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti17" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 11.5, 0, 4.5980763)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti17"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti17"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti18" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 13, 0, 2)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti18"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti18"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti19" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 14.5, 0, -0.59807634)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti19"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti19"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti20" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 16, 0, -3.1961527)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti20"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti20"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti21" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, -3.795555, 0, 1.4470861)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti21"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti21"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti22" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, -0.89777756, 0, 2.2235432)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti22"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti22"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti23" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 2, 0, 3.0000002)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti23"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti23"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti24" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 4.8977776, 0, 3.7764573)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti24"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti24"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti25" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 7.795555, 0, 4.5529146)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti25"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti25"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti26" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 2.204445, 0, -8.552914)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti26"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti26"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti27" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 5.1022224, 0, -7.776457)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti27"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti27"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti28" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 8, 0, -7)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti28"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti28"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti29" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 10.897778, 0, -6.2235427)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti29"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti29"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
+offset = Vector2(0, -85)
+billboard = 1
+no_depth_test = true
+font_size = 62
+outline_size = 37
+
+[node name="Entiti30" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 13.795555, 0, -5.4470854)
+script = ExtResource("1_bk3v5")
+attributes = {
+"HP": 1000000,
+"Name": "Entity",
+"Speed": 10.0
+}
+metadata/_custom_type_script = "uid://denpk5hqilk0j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Entiti30"]
+shape = SubResource("BoxShape3D_4oc8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Entiti30"]
+mesh = SubResource("BoxMesh_bk3v5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/Entiti30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581)
+mesh = SubResource("BoxMesh_jcm6v")
+
+[node name="HPLabel" type="Label3D" parent="Entities/Entiti30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28909206, 2, 1.112204)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "100"
+font_size = 102
+
+[node name="EffectsLabel" type="Label3D" parent="Entities/Entiti30"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 visible = false
 offset = Vector2(0, -85)
